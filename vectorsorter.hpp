@@ -7,14 +7,11 @@
 template <typename T>
 void vectorSorter(vector<T> &array, function<bool(T, T)> func) {
   for(int i = 0; i < array.size() - 1;i++) {
-    int min_index = i;
-
     for(int j = i + 1;j < array.size();j++) {
-      if(func(array[j], array[min_index])) {
-        auto temp = array[min_index];
-        array[min_index] = array[j];
+      if(func(array[j], array[i])) {
+        auto temp = array[i];
+        array[i] = array[j];
         array[j] = temp;
-      }
     }
   }
 }
